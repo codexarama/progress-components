@@ -7,17 +7,20 @@
 
 .choice_buttons {
   margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
 }
 
 .choice_title {
+  text-align: center;
   color: var(--light);
 }
 
 .choice_bars,
 .choice_steps {
+  margin-bottom: 1rem;
   padding: 1rem;
   width: 10rem;
   border-radius: 5rem;
@@ -32,6 +35,7 @@
   color: var(--light);
 }
 
+/*** BARS BUTTON ***/
 progress {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -43,7 +47,7 @@ progress {
 /* firefox - internet explorer - edge */
 progress,
 progress::-moz-progress-bar {
-  border-radius: 1rem ;
+  border-radius: 1rem;
 }
 
 /* BACKGROUND */
