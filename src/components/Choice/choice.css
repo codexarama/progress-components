@@ -18,8 +18,8 @@
   color: var(--light);
 }
 
-.choice_bars,
-.choice_steps {
+.choice_bar,
+.choice_step {
   margin-bottom: 1rem;
   padding: 1rem;
   width: 10rem;
@@ -28,11 +28,15 @@
   color: var(--dark);
 }
 
-.choice_bars:hover,
-.choice_steps:hover {
+.choice_bar:hover,
+.choice_step:hover {
   background: linear-gradient(to left, var(--primary), var(--secondary));
   box-shadow: 0 3px 3px -5px var(--primary), 0 2px 5px var(--primary);
   color: var(--light);
+}
+
+.choice_step img {
+  vertical-align: middle;
 }
 
 /*** BARS BUTTON ***/
@@ -40,7 +44,6 @@ progress {
   -webkit-appearance: none;
   -moz-appearance: none;
   width: 6rem;
-  height: 1rem;
 }
 
 /* BORDER-RADIUS */
