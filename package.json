@@ -1,5 +1,14 @@
 {
   "name": "progress-components",
+  "description": "illustrations dynamiques et animées de progressions",
+  "author": "Amandine Arias-Breton alias Codexarama",
+  "keywords": [
+    "barre",
+    "progression",
+    "étapes",
+    "dynamique",
+    "animée"
+  ],
   "version": "0.1.0",
   "private": true,
   "dependencies": {
