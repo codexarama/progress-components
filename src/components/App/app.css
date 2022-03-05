@@ -1,0 +1,29 @@
+/* COLORS */
+:root {
+  --bg: #262626;
+  --primary: #f2709c;
+  --secondary: #ff9472;
+  --tertiary: lightgrey;
+  --dark: #000;
+  --light: #fff;
+}
+
+/* STANDARDS */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  box-sizing: border-box;
+  background: var(--bg);
+}
+
+/* ELEMENTS */
+button {
+  border: none;
+  cursor: pointer;
+}
