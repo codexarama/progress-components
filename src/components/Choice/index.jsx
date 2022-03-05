@@ -20,9 +20,6 @@ export default function Choice() {
         >
           {isHovered ? (
             <progress max="100" value="60">
-              <div className="choice_bars--illustration">
-                <div></div>
-              </div>
             </progress>
           ) : (
             <h2>bars</h2>
