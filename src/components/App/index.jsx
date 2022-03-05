@@ -1,5 +1,7 @@
+import Choice from '../Choice';
+
 import './app.css';
 
 export default function App() {
-  return <div className="App">Progression Illustrations</div>;
+  return <Choice />;
 }
