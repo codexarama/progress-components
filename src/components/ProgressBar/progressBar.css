@@ -1,0 +1,28 @@
+.progress_bar {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.progress_bar--bg {
+  background-color: var(--tertiary);
+  box-shadow: 0 1px 5px var(--dark);
+  border-radius: 20px;
+  position: relative;
+  margin: 15px 0;
+  height: 30px;
+  width: 300px;
+}
+
+.progress_bar--progress {
+  background: linear-gradient(to left, var(--primary), var(--secondary));
+  box-shadow: 0 1px 5px var(--primary);
+  border-radius: 1rem;
+  color: var(--light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 0;
+  opacity: 0;
+  transition: 1s ease 0.3s;
+}
