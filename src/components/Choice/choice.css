@@ -13,11 +13,6 @@
   justify-content: space-evenly;
 }
 
-.choice_title {
-  text-align: center;
-  color: var(--light);
-}
-
 .choice_bar,
 .choice_step {
   margin-bottom: 1rem;
