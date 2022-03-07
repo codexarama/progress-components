@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import circleFilled from '../../assets/CodiconCircleFilled.svg';
-import circleOutline from '../../assets/CodiconCircleOutline.svg';
+import dots from '../../assets/dots.svg';
 
 import ProgressBar from '../ProgressBar';
 
@@ -10,6 +9,7 @@ import './choice.css';
 export default function Choice() {
   const [isBar, setIsBar] = useState('');
   const [isBarOpen, setIsBarOpen] = useState(false);
+  
   const [isStep, setIsStep] = useState('');
 
   const [isHovered, setIsHovered] = useState(false);
@@ -69,10 +69,7 @@ export default function Choice() {
           >
             {isStep && isHovered ? (
               <>
-                <img src={circleFilled} alt="filled circle icon" />
-                <img src={circleFilled} alt="filled circle icon" />
-                <img src={circleFilled} alt="filled circle icon" />
-                <img src={circleOutline} alt="outline circle icon" />
+                <img src={dots} alt="filled circle icon" />
               </>
             ) : (
               <h2>steps</h2>
