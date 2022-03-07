@@ -6,11 +6,11 @@
 .progress_bar--bg {
   background-color: var(--tertiary);
   box-shadow: 0 1px 5px var(--dark);
-  border-radius: 20px;
+  border-radius: 1rem;
   position: relative;
-  margin: 15px 0;
-  height: 30px;
-  width: 300px;
+  margin: 0.5rem 0;
+  height: 1.5rem;
+  width: 15rem;
 }
 
 .progress_bar--progress {
@@ -24,5 +24,6 @@
   height: 100%;
   width: 0;
   opacity: 0;
+  font-size: x-small;
   transition: 1s ease 0.3s;
 }

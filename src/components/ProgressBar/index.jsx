@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { createPortal } from 'react-dom';
 import './progressBar.css';
 
 export default function ProgressBar({ bar, close, done }) {
@@ -11,9 +10,9 @@ export default function ProgressBar({ bar, close, done }) {
       width: `${done}%`,
     };
     setStyle(doneStyle);
-  }, 200);
+  }, 1500);
 
-  return createPortal(
+  return (
     <>
       {bar ? (
         <main
@@ -29,7 +28,7 @@ export default function ProgressBar({ bar, close, done }) {
             X
           </button>
           <h1>Custom Progress Bars</h1>
-          <section className='progress_bar' >
+          <section className="progress_bar">
             <div className="progress_bar--bg">
               <div className="progress_bar--progress" style={style}>
                 {done}%
@@ -38,7 +37,6 @@ export default function ProgressBar({ bar, close, done }) {
           </section>
         </main>
       ) : null}
-    </>,
-    document.body
+    </>
   );
 }
