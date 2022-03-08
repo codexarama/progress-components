@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import { createPortal } from 'react-dom';
 import './progressBar.css';
 
-export default function ProgressBar({ bar, close, done }) {
+export default function ProgressBar({ progressBar, close, done }) {
   const [style, setStyle] = useState({});
 
   setTimeout(() => {
@@ -12,9 +13,9 @@ export default function ProgressBar({ bar, close, done }) {
     setStyle(doneStyle);
   }, 1500);
 
-  return (
+  return createPortal(
     <>
-      {bar ? (
+      {progressBar ? (
         <main
           autoFocus
           className="modal"
@@ -37,6 +38,7 @@ export default function ProgressBar({ bar, close, done }) {
           </section>
         </main>
       ) : null}
-    </>
+    </>,
+    document.body
   );
 }
