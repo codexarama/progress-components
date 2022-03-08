@@ -1,7 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
 import dots from '../../assets/dots.svg';
+
 import ProgressBar from '../ProgressBar';
 import ProgressStep from '../ProgressStep';
+
 import './choice.css';
 
 export default function Choice({ label }) {
@@ -12,6 +15,19 @@ export default function Choice({ label }) {
     setIsOpen(!isOpen);
   };
 
+  // close modal by pressing escape key when keyboard navigation
+  function escToClose(e) {
+    if (e.key === 'Escape') {
+      handleClick();
+    }
+  }
+
+  // detects when escape key pressed to close the modal
+  // and stops event propagation when occured
+  useEffect(() => {
+    window.addEventListener('keydown', escToClose);
+    return () => window.removeEventListener('keydown', escToClose);
+  });
   return (
     <>
       <button
