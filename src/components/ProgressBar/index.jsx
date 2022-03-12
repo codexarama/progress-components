@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
+import PercentOptions from '../PercentOptions';
 import './progressBar.css';
 
 export default function ProgressBar({ progressBar, close, done }) {
@@ -21,17 +22,25 @@ export default function ProgressBar({ progressBar, close, done }) {
           className="modal"
           role="main"
           // close modal when click outside of it
-          onClick={() => {
-            close();
-          }}
+          // onClick={() => {
+          //   close();
+          // }}
         >
           <button className="modal_close" aria-label="Close" onClick={close}>
             X
           </button>
           <h1>Custom Progress Bars</h1>
           <section className="progress_bar">
+            <PercentOptions />
             <div className="progress_bar--bg">
-              <div className="progress_bar--progress" style={style}>
+              <div
+                className="progress_bar--progress"
+                style={style}
+                role="progressbar"
+                aria-valuenow={done}
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
                 {done}%
               </div>
             </div>
