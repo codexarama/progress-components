@@ -1,6 +1,24 @@
 .progress_bar {
+  width: 22rem;
   margin-top: 2rem;
   margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.progress_bar #percent_options {
+  width: 5.5rem;
+}
+
+#percent_options div::-webkit-scrollbar {
+  width: 0;
+}
+
+#react-select-3-listbox {
+  width: 3.2rem;
+  text-align: right;
+  /* max-height: 19rem;
+  overflow: auto; */
 }
 
 .progress_bar--bg {
