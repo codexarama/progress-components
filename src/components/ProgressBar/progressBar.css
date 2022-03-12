@@ -8,17 +8,18 @@
 
 .progress_bar #percent_options {
   width: 5.5rem;
-}
-
-#percent_options div::-webkit-scrollbar {
-  width: 0;
+  text-align: right;
 }
 
 #react-select-3-listbox {
   width: 3.2rem;
   text-align: right;
-  /* max-height: 19rem;
+  /* max-height: 11rem;
   overflow: auto; */
+}
+
+#react-select-3-listbox ::-webkit-scrollbar {
+  width: 0;
 }
 
 .progress_bar--bg {

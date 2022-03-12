@@ -17,6 +17,7 @@ export default function ProgressStep({ progressStep, close }) {
             X
           </button>
           <h1>Custom Progress Steps</h1>
+          <section className="progress_step"></section>
         </main>
       ) : null}
     </>,

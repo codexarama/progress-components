@@ -14,7 +14,7 @@ export default function PercentOptions() {
       name="percent_options"
       id="percent_options"
       classNamePrefix="percent_options"
-      defaultValue={options[0]}
+      defaultValue={options[6]}
       options={options}
       theme={(theme) => ({
         ...theme,
