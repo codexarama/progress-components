@@ -48,7 +48,7 @@ export default function Choice({ label }) {
       </button>
 
       {label ? (
-        <ProgressBar progressBar={isOpen} close={handleClick} done="70" />
+        <ProgressBar progressBar={isOpen} close={handleClick}/>
       ) : (
         <ProgressStep progressStep={isOpen} close={handleClick} />
       )}

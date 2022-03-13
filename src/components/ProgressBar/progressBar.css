@@ -1,28 +1,34 @@
 .progress_bar {
-  width: 22rem;
   margin-top: 2rem;
   margin-bottom: 1rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
-.progress_bar #percent_options {
-  width: 5.5rem;
+.progress_bar--options select {
+  outline: none;
+  cursor: pointer;
   text-align: right;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  margin-right: 2rem;
 }
 
-#react-select-3-listbox {
-  width: 3.2rem;
-  text-align: right;
-  /* max-height: 11rem;
-  overflow: auto; */
+.progress_bar--options select:focus {
+  outline: none;
 }
 
-#react-select-3-listbox ::-webkit-scrollbar {
-  width: 0;
+.progress_bar--options select option {
+  text-align: right !important;
 }
 
-.progress_bar--bg {
+.progress_bar--options select:focus option:checked {
+  background: var(--bg);
+  color: var(--light);
+}
+
+.progress_bar--full {
   background-color: var(--tertiary);
   box-shadow: 0 1px 5px var(--dark);
   border-radius: 1rem;
@@ -32,7 +38,7 @@
   width: 15rem;
 }
 
-.progress_bar--progress {
+.progress_bar--value {
   background: linear-gradient(to left, var(--primary), var(--secondary));
   box-shadow: 0 1px 5px var(--primary);
   border-radius: 1rem;
