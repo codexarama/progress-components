@@ -20,7 +20,7 @@
 }
 
 .progress_bar--options select option {
-  text-align: right !important;
+  direction: rtl;
 }
 
 .progress_bar--options select:focus option:checked {
