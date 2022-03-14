@@ -1,13 +1,18 @@
 import { createPortal } from 'react-dom';
+import { useContext } from 'react';
+import { multiStepContext } from '../../StepContext';
 
-import { Stepper, StepLabel, Step } from '@material-ui/core';
 import Step1 from './Step1';
 import Step2 from './Step2';
 import Step3 from './Step3';
 
+import { Stepper, StepLabel, Step } from '@material-ui/core';
+
 import './progressStep.css';
 
 export default function ProgressStep({ progressStep, close }) {
+  const {currentStep, submittedData} = useContext(multiStepContext)
+
   function stepContent(step) {
     switch (step) {
       case 1:
@@ -28,7 +33,7 @@ export default function ProgressStep({ progressStep, close }) {
           </button>
           <h1>Custom Progress Steps</h1>
           <section className="progress_step">
-            <Stepper activeStep={1} orientation="horizontal">
+            <Stepper activeStep={currentStep - 1} orientation="horizontal">
               <Step>
                 <StepLabel></StepLabel>
               </Step>
@@ -39,7 +44,7 @@ export default function ProgressStep({ progressStep, close }) {
                 <StepLabel></StepLabel>
               </Step>
             </Stepper>
-            {stepContent(1)}
+            {stepContent(currentStep)}
           </section>
         </main>
       ) : null}
