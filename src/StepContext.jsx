@@ -6,7 +6,9 @@ export const multiStepContext = React.createContext();
 const StepContext = () => {
   const [currentStep, setStep] = useState(1);
   const [userData, setUserData] = useState([]);
-  const [submittedData, setSubmittedData] = useState([]);
+  const [confirmedData, setConfirmedData] = useState([]);
+
+  function submitData() {}
 
   return (
     <>
@@ -16,8 +18,9 @@ const StepContext = () => {
           setStep,
           userData,
           setUserData,
-          submittedData,
-          setSubmittedData,
+          confirmedData,
+          setConfirmedData,
+          submitData,
         }}
       >
         <App />
