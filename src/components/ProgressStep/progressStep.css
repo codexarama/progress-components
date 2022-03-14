@@ -1,0 +1,4 @@
+.progress_step {
+    display: flex;
+    flex-direction: column;
+}
