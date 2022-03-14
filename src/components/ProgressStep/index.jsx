@@ -8,10 +8,6 @@ export default function ProgressStep({ progressStep, close }) {
           autoFocus
           className="modal"
           role="main"
-          // close modal when click outside of it
-          onClick={() => {
-            close();
-          }}
         >
           <button className="modal_close" aria-label="Close" onClick={close}>
             X
