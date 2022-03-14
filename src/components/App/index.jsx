@@ -7,7 +7,7 @@ export default function App() {
   return (
     <main className="choice">
       <h1 className="choice_title">Progression illustrations</h1>
-      <section className="choice_buttons">
+      <section className="choice_selection">
         <Choice label={isBarsButton} />
         <Choice label={!isBarsButton} />
       </section>
