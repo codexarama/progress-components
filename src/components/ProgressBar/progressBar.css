@@ -39,7 +39,7 @@
 }
 
 .progress_bar--value {
-  background: linear-gradient(to left, var(--primary), var(--secondary));
+  background: var(--gradient);
   box-shadow: 0 1px 5px var(--primary);
   border-radius: 1rem;
   color: var(--light);
