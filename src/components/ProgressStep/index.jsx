@@ -2,26 +2,54 @@ import { createPortal } from 'react-dom';
 import { useContext } from 'react';
 import { multiStepContext } from '../../StepContext';
 
-import Step1 from './Step1';
-import Step2 from './Step2';
-import Step3 from './Step3';
+import Form from './Form';
 
 import { Stepper, StepLabel, Step } from '@material-ui/core';
 
 import './progressStep.css';
 
 export default function ProgressStep({ progressStep, close }) {
-  const {currentStep, submittedData} = useContext(multiStepContext)
+  const { currentStep, submittedData } = useContext(multiStepContext);
 
-  function stepContent(step) {
-    switch (step) {
+  // function StepComponent() {
+  //   return (
+  //     <Step>
+  //       <StepLabel>hello</StepLabel>
+  //     </Step>
+  //   );
+  // }
+
+  function stepContent() {
+    switch (currentStep) {
       case 1:
-        return <Step1 />;
+        return (
+          <Form
+            id={`step ${currentStep}`}
+            step={currentStep}
+            type="text"
+            inputLabel="Favorite color"
+          />
+        );
       case 2:
-        return <Step2 />;
+        return (
+          <Form
+            id={`step ${currentStep}`}
+            step={currentStep}
+            type="text"
+            inputLabel="Favorite number"
+          />
+        );
       case 3:
-        return <Step3 />;
-        default: console.log(`progress : step ${step} / 3`);
+        return (
+          <Form
+            id={`step ${currentStep}`}
+            step={currentStep}
+            type="text"
+            inputLabel="Favorite letter"
+          />
+        );
+      default:
+        console.log(`progress : step ${currentStep} / 3`);
     }
   }
   return createPortal(
@@ -43,6 +71,9 @@ export default function ProgressStep({ progressStep, close }) {
               <Step>
                 <StepLabel></StepLabel>
               </Step>
+              {/* {Array.from({ length: 3 }, (_, index) => (
+                <StepComponent key={index} />
+              ))} */}
             </Stepper>
             {stepContent(currentStep)}
           </section>
