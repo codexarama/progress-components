@@ -1,57 +1,24 @@
+import { useState } from 'react';
 import { createPortal } from 'react-dom';
-import { useContext } from 'react';
-import { multiStepContext } from '../../StepContext';
 
-import Form from './Form';
-
-import { Stepper, StepLabel, Step } from '@material-ui/core';
+import Stepper from './Stepper';
 
 import './progressStep.css';
 
 export default function ProgressStep({ progressStep, close }) {
-  const { currentStep, submittedData } = useContext(multiStepContext);
+  const [currentStep, setCurrentStep] = useState(1);
 
-  // function StepComponent() {
-  //   return (
-  //     <Step>
-  //       <StepLabel>hello</StepLabel>
-  //     </Step>
-  //   );
-  // }
+  const stepLabel = ['Step 1', 'Step 2', 'Step 3', 'Complete'];
 
-  function stepContent() {
-    switch (currentStep) {
-      case 1:
-        return (
-          <Form
-            id={`step ${currentStep}`}
-            step={currentStep}
-            type="text"
-            inputLabel="Favorite color"
-          />
-        );
-      case 2:
-        return (
-          <Form
-            id={`step ${currentStep}`}
-            step={currentStep}
-            type="text"
-            inputLabel="Favorite number"
-          />
-        );
-      case 3:
-        return (
-          <Form
-            id={`step ${currentStep}`}
-            step={currentStep}
-            type="text"
-            inputLabel="Favorite letter"
-          />
-        );
-      default:
-        console.log(`progress : step ${currentStep} / 3`);
+  const handleClick = (clickType) => {
+    let newStep = currentStep;
+    clickType === 'next' ? newStep++ : newStep--;
+    // Check if steps are within the boundary
+    if (newStep > 0 && newStep <= stepLabel.length) {
+      setCurrentStep(newStep);
     }
-  }
+  };
+
   return createPortal(
     <>
       {progressStep ? (
@@ -60,22 +27,24 @@ export default function ProgressStep({ progressStep, close }) {
             X
           </button>
           <h1>Custom Progress Steps</h1>
-          <section className="progress_step">
-            <Stepper activeStep={currentStep - 1} orientation="horizontal">
-              <Step>
-                <StepLabel></StepLabel>
-              </Step>
-              <Step>
-                <StepLabel></StepLabel>
-              </Step>
-              <Step>
-                <StepLabel></StepLabel>
-              </Step>
-              {/* {Array.from({ length: 3 }, (_, index) => (
-                <StepComponent key={index} />
-              ))} */}
-            </Stepper>
-            {stepContent(currentStep)}
+          <section className="progress_steps">
+            <div className="stepper">
+              <Stepper steps={stepLabel} currentStep={currentStep} />
+            </div>
+            <div className="stepper_navigation">
+              <button
+                onClick={() => handleClick()}
+                className="stepper_navigation--previous"
+              >
+                {currentStep > 1 ? "⯇" : ""}
+              </button>
+              <button
+                onClick={() => handleClick('next')}
+                className="stepper_navigation--next"
+              >
+                {currentStep < stepLabel.length ? "⯈" : "🗹"}
+              </button>
+            </div>
           </section>
         </main>
       ) : null}

@@ -1,46 +1,4 @@
-.MuiPaper-root {
-  background-color: transparent !important;
-}
-
-/* NE FONCITONNE PAS */
-/* .MuiStepIcon-root.MuiStepIcon-active {
-  background: var(--gradient) !important;
-}
-
-.MuiStepIcon-root.MuiStepIcon-active svg {
-  background: var(--gradient) !important;
-} */
-
-.progress_step--form {
+.stepper {
   display: flex;
-  flex-direction: column;
-}
-
-.progress_step--form input {
-  margin-bottom: 2rem;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  background: var(--tertiary);
-  font-size: medium;
-}
-
-.progress_step--form input:hover,
-.progress_step--form input:focus,
-.progress_step--form input:active {
-  background: var(--light);
-}
-
-.progress_step--buttons {
-  margin: auto;
-}
-
-.progress_step--buttons button {
-  width: fit-content;
-  margin: 0 0.5rem;
-  padding: 0.5rem 1rem;
-  border-radius: 1rem;
-  background: var(--gradient);
   color: var(--light);
-  /* font-size: larger; */
-  font-weight: 600;
 }
