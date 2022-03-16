@@ -35,14 +35,16 @@ export default function ProgressStep({ progressStep, close }) {
               <button
                 onClick={() => handleClick()}
                 className="stepper_navigation--previous"
+                aria-label={currentStep > 1 ? 'previous step' : ''}
               >
-                {currentStep > 1 ? "⯇" : ""}
+                {currentStep > 1 ? '⯇' : ''}
               </button>
               <button
                 onClick={() => handleClick('next')}
                 className="stepper_navigation--next"
+                aria-label={currentStep < stepLabel.length ? 'next step' : 'completed'}
               >
-                {currentStep < stepLabel.length ? "⯈" : "🗹"}
+                {currentStep < stepLabel.length ? '⯈' : '🗹'}
               </button>
             </div>
           </section>
