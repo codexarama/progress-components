@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 
+import PropTypes from 'prop-types';
+
 import dots from '../../assets/dots.svg';
 
 import ProgressBar from '../ProgressBar';
@@ -7,6 +9,14 @@ import ProgressSteps from '../ProgressSteps';
 
 import './choice.css';
 
+
+/**
+ * Choice Component
+ *
+ * @param   {object}      props
+ * @param   {boolean}     props.label       [button 1 || button 2 label]
+ * @returns {Reactnode}   jsx injected in DOM
+ */
 export default function Choice({ label }) {
   const [isHovered, setIsHovered] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -55,3 +65,10 @@ export default function Choice({ label }) {
     </>
   );
 }
+
+/**
+ * Choice PROPTYPES
+ */
+ Choice.propTypes = {
+  label: PropTypes.bool.isRequired,
+};

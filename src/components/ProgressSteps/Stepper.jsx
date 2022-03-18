@@ -1,25 +1,35 @@
 import { useState, useEffect, useRef } from 'react';
 
+import PropTypes from 'prop-types';
+
+/**
+ * Stepper Component
+ *
+ * @param   {object}      props
+ * @param   {object}      props.steps               [step settings]
+ * @param   {number}      props.currentStep         [step number]
+ * @returns {Reactnode}   jsx injected in DOM
+ */
 export default function Stepper({ steps, currentStep }) {
   const [stepperSteps, setStep] = useState([]);
   const stepStateRef = useRef();
 
-  useEffect(() => {
     // step infos : label & status
-    const stepsState = steps.map((step, index) => {
-      const stepInfos = {};
-      stepInfos.label = step;
-      stepInfos.completed = false;
-      stepInfos.highlighted = index === 0 ? true : false;
-      stepInfos.selected = index === 0 ? true : false;
-      return stepInfos;
-    });
+    useEffect(() => {
+      const stepSettings = steps.map((step, index) => {
+        const current = {};
+        current.label = step;
+        current.completed = false;
+        current.highlighted = index === 0 ? true : false;
+        current.selected = index === 0 ? true : false;
+        return current;
+      });
 
-    // update state status
-    stepStateRef.current = stepsState;
-    const update = updateStep(currentStep - 1, stepsState);
-    setStep(update);
-  }, [currentStep, steps]);
+      stepStateRef.current = stepSettings;
+      const update = updateStep(currentStep - 1, stepSettings);
+      setStep(update);
+
+    }, [currentStep, steps]);
 
   // manage state settings for each status
   function updateStep(stepNumber, steps) {
@@ -73,5 +83,19 @@ export default function Stepper({ steps, currentStep }) {
       </div>
     );
   });
+
   return <>{stepsDisplay}</>;
 }
+
+/**
+ * Stepper PROPTYPES
+ */
+Stepper.propTypes = {
+  current: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    completed: PropTypes.bool.isRequired,
+    highlighted: PropTypes.bool.isRequired,
+    selected: PropTypes.bool.isRequired,
+  }),
+  currentStep: PropTypes.number.isRequired,
+};

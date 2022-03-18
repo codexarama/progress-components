@@ -1,10 +1,20 @@
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
 
+import PropTypes from 'prop-types';
+
 import Stepper from './Stepper';
 
 import './progressSteps.css';
 
+/**
+ * ProgressSteps Component
+ *
+ * @param   {object}      props
+ * @param   {boolean}     props.progressSteps       [mount || unmount its modal]
+ * @param   {function}    props.close               [handle X button click action]
+ * @returns {Reactnode}   jsx injected in DOM
+ */
 export default function ProgressSteps({ progressSteps, close }) {
   const [currentStep, setCurrentStep] = useState(0);
 
@@ -56,3 +66,11 @@ export default function ProgressSteps({ progressSteps, close }) {
     document.body
   );
 }
+
+/**
+ * ProgressSteps PROPTYPES
+ */
+ ProgressSteps.propTypes = {
+  progressSteps: PropTypes.bool.isRequired,
+  close: PropTypes.func.isRequired,
+};
