@@ -3,25 +3,26 @@ import { createPortal } from 'react-dom';
 
 import Stepper from './Stepper';
 
-import './progressStep.css';
+import './progressSteps.css';
 
-export default function ProgressStep({ progressStep, close }) {
+export default function ProgressSteps({ progressSteps, close }) {
   const [currentStep, setCurrentStep] = useState(0);
 
   const stepLabel = ['Step 1', 'Step 2', 'Step 3', 'Complete'];
 
-  const handleClick = (clickType) => {
-    let newStep = currentStep;
-    clickType === 'next' ? newStep ++ : newStep --;
+  const handleClick = (goTo) => {
+    let stepPosition = currentStep;
+    goTo === 'next' ? stepPosition ++ : stepPosition --;
+
     // Check if steps are within the boundary
-    if (newStep > 0 && newStep <= stepLabel.length) {
-      setCurrentStep(newStep);
+    if (stepPosition > 0 && stepPosition <= stepLabel.length) {
+      setCurrentStep(stepPosition);
     }
   };
 
   return createPortal(
     <>
-      {progressStep ? (
+      {progressSteps ? (
         <main autoFocus className="modal" role="main">
           <button className="modal_close" aria-label="Close" onClick={close}>
             X

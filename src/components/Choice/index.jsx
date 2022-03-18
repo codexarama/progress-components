@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import dots from '../../assets/dots.svg';
 
 import ProgressBar from '../ProgressBar';
-import ProgressStep from '../ProgressStep';
+import ProgressSteps from '../ProgressSteps';
 
 import './choice.css';
 
@@ -50,7 +50,7 @@ export default function Choice({ label }) {
       {label ? (
         <ProgressBar progressBar={isOpen} close={handleClick}/>
       ) : (
-        <ProgressStep progressStep={isOpen} close={handleClick} />
+        <ProgressSteps progressSteps={isOpen} close={handleClick} />
       )}
     </>
   );
