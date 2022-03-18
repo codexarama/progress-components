@@ -6,7 +6,13 @@
   --tertiary: lightgrey;
   --dark: #171515;
   --light: #fff;
-  --gradient: linear-gradient(to left, var(--primary), var(--secondary));
+  --gradient: linear-gradient(to right, var(--primary), var(--secondary));
+  --gradient-hover: linear-gradient(to left, var(--primary), var(--secondary));
+  --gradient_variation: linear-gradient(to right, #1c9da3, #44dbc4);
+  /* --gradient_variation: linear-gradient(to right, #3cd4db, #43f9dd); */
+  --gradient_neutral: linear-gradient(to left, grey, darkgrey);
+  --gradient_neutral-hover: linear-gradient(to right, grey, darkgrey);
+
 }
 
 /* STANDARDS */
