@@ -1,12 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
 
 export default function Stepper({ steps, currentStep }) {
-
   const [stepperSteps, setStep] = useState([]);
   const stepStateRef = useRef();
 
-  // step infos : label & status
   useEffect(() => {
+    // step infos : label & status
     const stepsState = steps.map((step, index) => {
       const stepInfos = {};
       stepInfos.label = step;
@@ -15,26 +14,23 @@ export default function Stepper({ steps, currentStep }) {
       stepInfos.selected = index === 0 ? true : false;
       return stepInfos;
     });
+
+    // update state status
     stepStateRef.current = stepsState;
     const update = updateStep(currentStep - 1, stepsState);
     setStep(update);
   }, [currentStep, steps]);
 
-  // update state status
-  useEffect(() => {
-    const update = updateStep(currentStep - 1, stepStateRef.current);
-    setStep(update);
-  }, [currentStep]);
-
+  // manage state settings for each status
   function updateStep(stepNumber, steps) {
-    const newSteps = [...steps];
+    const newStatus = [...steps];
     let stepCounter = 0;
 
-    while (stepCounter < newSteps.length) {
+    while (stepCounter < newStatus.length) {
       //current step
       if (stepCounter === stepNumber) {
-        newSteps[stepCounter] = {
-          ...newSteps[stepCounter],
+        newStatus[stepCounter] = {
+          ...newStatus[stepCounter],
           highlighted: true,
           selected: true,
           completed: false,
@@ -43,8 +39,8 @@ export default function Stepper({ steps, currentStep }) {
       }
       // previous step
       else if (stepCounter < stepNumber) {
-        newSteps[stepCounter] = {
-          ...newSteps[stepCounter],
+        newStatus[stepCounter] = {
+          ...newStatus[stepCounter],
           highlighted: false,
           selected: true,
           completed: true,
@@ -53,8 +49,8 @@ export default function Stepper({ steps, currentStep }) {
       }
       // next step
       else {
-        newSteps[stepCounter] = {
-          ...newSteps[stepCounter],
+        newStatus[stepCounter] = {
+          ...newStatus[stepCounter],
           highlighted: false,
           selected: false,
           completed: false,
@@ -62,26 +58,20 @@ export default function Stepper({ steps, currentStep }) {
         stepCounter++;
       }
     }
-    return newSteps;
+    return newStatus;
   }
 
   const stepsDisplay = stepperSteps.map((step, index) => {
     return (
-      <div key={index} className={`stepper_step--${index + 1}`}>
-        <div className="step_status">
-          <div className={step.selected ? 'selected' : ''}>
-            {step.completed ? (
-              <span className="confirmed">✓</span>
-            ) : (
-              index + 1
-            )}
-          </div>
-          <div className={step.highlighted ? 'highlighted' : ''}>
-            {step.label}
-          </div>
+      <div key={index} className={`step step_${index + 1}`}>
+        <div className={`step_number ${step.selected ? 'selected' : ''}`}>
+          {step.completed ? <span className="confirmed">✓</span> : index + 1}
+        </div>
+        <div className={`step_label ${step.highlighted ? 'highlighted' : ''}`}>
+          {step.label}
         </div>
       </div>
     );
   });
   return <>{stepsDisplay}</>;
-};
+}

@@ -6,13 +6,13 @@ import Stepper from './Stepper';
 import './progressStep.css';
 
 export default function ProgressStep({ progressStep, close }) {
-  const [currentStep, setCurrentStep] = useState(1);
+  const [currentStep, setCurrentStep] = useState(0);
 
   const stepLabel = ['Step 1', 'Step 2', 'Step 3', 'Complete'];
 
   const handleClick = (clickType) => {
     let newStep = currentStep;
-    clickType === 'next' ? newStep++ : newStep--;
+    clickType === 'next' ? newStep ++ : newStep --;
     // Check if steps are within the boundary
     if (newStep > 0 && newStep <= stepLabel.length) {
       setCurrentStep(newStep);
@@ -32,19 +32,20 @@ export default function ProgressStep({ progressStep, close }) {
               <Stepper steps={stepLabel} currentStep={currentStep} />
             </div>
             <div className="stepper_navigation">
-              <button
-                onClick={() => handleClick()}
-                className="stepper_navigation--previous"
-                aria-label={currentStep > 1 ? 'previous step' : ''}
-              >
-                {currentStep > 1 ? '⯇' : ''}
-              </button>
+              {currentStep === 0 ? null : (
+                <button
+                  onClick={() => handleClick()}
+                  className="stepper_navigation--previous"
+                >
+                  {currentStep > 0 ? '⯇' : ''}
+                </button>
+              )}
               <button
                 onClick={() => handleClick('next')}
                 className="stepper_navigation--next"
-                aria-label={currentStep < stepLabel.length ? 'next step' : 'completed'}
               >
-                {currentStep < stepLabel.length ? '⯈' : '🗹'}
+                {currentStep < stepLabel.length ? '⯈' : '✔'}
+                {/* {currentStep < stepLabel.length ? '⯈' : '🗹'} */}
               </button>
             </div>
           </section>
