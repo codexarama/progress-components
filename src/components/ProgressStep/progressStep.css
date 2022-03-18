@@ -1,4 +1,90 @@
+.progress_steps {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
 .stepper {
+  margin-bottom: 2rem;
   display: flex;
+  width: 20rem;
+  justify-content: space-between;
+}
+
+.step {
+  position: relative;
+  width: 5rem;
+}
+
+.step:not(:last-child) .step_number::after {
+  content: '';
+  position: absolute;
+  margin-left: 5rem;
+  height: 0.1rem;
+  width: 2rem;
+  background: var(--tertiary);
+  z-index: -1;
+}
+
+.step:not(:last-child) .selected::after {
+  background: var(--gradient_variation);
+}
+
+.step_number {
+  margin: auto;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--tertiary);
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  color: var(--bg);
+}
+
+.step_label {
+  width: 5rem;
+  text-align: center;
+  color: var(--tertiary);
+  /* color: var(--light); */
+}
+
+.step .selected {
+  background: var(--gradient_variation);
   color: var(--light);
+  font-weight: 600;
+}
+
+.step .highlighted {
+  color: var(--light);
+}
+
+.stepper_navigation {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.stepper_navigation button {
+  width: 3rem;
+  margin: 0 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  /* box-shadow: 0 1px 5px var(--primary); */
+  color: var(--light);
+}
+
+.stepper_navigation--previous {
+  background: var(--gradient_neutral);
+}
+
+.stepper_navigation--previous:hover {
+  background: var(--gradient_neutral-hover);
+}
+
+.stepper_navigation--next {
+  background: var(--gradient);
+}
+
+.stepper_navigation--next:hover {
+  background: var(--gradient-hover);
 }
