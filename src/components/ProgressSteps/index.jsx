@@ -16,7 +16,7 @@ import './progressSteps.css';
  * @returns {Reactnode}   jsx injected in DOM
  */
 export default function ProgressSteps({ progressSteps, close }) {
-  const [currentStep, setCurrentStep] = useState(0);
+  const [currentStep, setCurrentStep] = useState(1);
 
   const stepLabel = ['Step 1', 'Step 2', 'Step 3', 'Complete'];
 
@@ -43,12 +43,12 @@ export default function ProgressSteps({ progressSteps, close }) {
               <Stepper steps={stepLabel} currentStep={currentStep} />
             </div>
             <div className="stepper_navigation">
-              {currentStep === 0 ? null : (
+              {currentStep === 1 ? null : (
                 <button
                   onClick={() => handleClick()}
                   className="stepper_navigation--previous"
                 >
-                  {currentStep > 0 ? '⯇' : ''}
+                  {currentStep > 1 ? '⯇' : ''}
                 </button>
               )}
               <button
