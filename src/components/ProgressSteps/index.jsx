@@ -8,7 +8,7 @@ import Stepper from './Stepper';
 import './progressSteps.css';
 
 /**
- * ProgressSteps Component
+ * ProgressSteps COMPONENT
  *
  * @param   {object}      props
  * @param   {boolean}     props.progressSteps       [mount || unmount its modal]
