@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
+
+import PropTypes from 'prop-types';
+
 import './progressBar.css';
 
 const options = [];
@@ -11,6 +14,7 @@ for (let n = 10; n <= 100; n += 10) {
 // console.log(options);
 
 /**
+ * ProgressBar COMPONENT
  *
  * @param   {object}    props
  * @param   {boolean}   props.progressBar   [modal (mount) || null (unmount)]
@@ -73,3 +77,11 @@ export default function ProgressBar({ progressBar, close }) {
     document.body
   );
 }
+
+/**
+ * ProgressBar PROPTYPES
+ */
+ ProgressBar.propTypes = {
+  progressBar: PropTypes.bool.isRequired,
+  close: PropTypes.func.isRequired,
+};
